@@ -4,9 +4,12 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema(
     {
-        name: {
+        firstName: {
             type: String,
-            required: true,
+            trim: true
+        },
+        lastName: {
+            type: String,
             trim: true
         },
         email: {
@@ -29,7 +32,9 @@ const userSchema = new mongoose.Schema(
             enum: ['user', 'hotelOwner', 'admin'],
             default: 'user'
         },
+        isActive: { type: Boolean, default: true },
         avatar: String,
+        nanational_ID: String,
         passwordResetToken: String,
         passwordResetExpires: Date,
     },
