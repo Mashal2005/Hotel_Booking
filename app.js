@@ -15,6 +15,14 @@ app.use(cors())
 
 app.use(express.json())
 
+const hotelRouter=require("./Routes/hotelRouters")
+const roomRouter=require("./Routes/roomsRouters")
+const userRouter=require("./Routes/userRouters")
+
+app.use('api/hotels',hotelRouter)
+app.use('api/rooms',hotelRouter)
+app.use('api/users',hotelRouter)
+
 
 port=process.env.port
 app.listen(port,()=>{
